@@ -19,7 +19,7 @@ class Square(Figure):
     @property
     def area(self):
         """
-        Функция вычисляет площадь квадрата по формуле S=a*b.
+        Функция вычисляет площадь квадрата по формуле S = a * b.
         :return: Площадь треугольника (float)
         """
         return self.side ** 2

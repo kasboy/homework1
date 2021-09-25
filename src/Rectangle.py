@@ -19,7 +19,7 @@ class Rectangle(Figure):
     @property
     def area(self):
         """
-        Функция считает площадь прямоугольника по формуле S = a*b.
+        Функция считает площадь прямоугольника по формуле S = a * b.
         :return: Площадь прямоугольника (float)
         """
         return self.side1 * self.side2

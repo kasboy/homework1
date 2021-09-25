@@ -11,7 +11,7 @@ class Circle(Figure):
     @property
     def perimetr(self):
         """
-        Функция вычисляет длину окружности по формуле S = 2 * π *r
+        Функция вычисляет длину окружности по формуле S = 2 * π * r
         :return:
         """
         return 2 * math.pi * self.radius
