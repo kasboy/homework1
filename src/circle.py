@@ -1,4 +1,4 @@
-from Figure import Figure
+from figure import Figure
 import math
 
 
@@ -7,6 +7,10 @@ class Circle(Figure):
 
     def __init__(self, radius):
         self.radius = radius
+
+    @property
+    def figure_params(self):
+        return f"Радиус = {self.radius}"
 
     @property
     def perimetr(self):
@@ -27,6 +31,6 @@ class Circle(Figure):
 
 if __name__ == "__main__":
     circle = Circle(10)
-    print("Имя фигуры = {}".format(circle.get_name()))
+    print("Имя фигуры = {}, {}".format(circle.get_name(), circle.figure_params))
     print("Периметр {}а = {}".format(circle.get_name(), circle.perimetr))
     print("Площадь {}а = {}".format(circle.get_name(), circle.area))

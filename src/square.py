@@ -1,5 +1,4 @@
-from Figure import Figure
-
+from figure import Figure
 
 
 class Square(Figure):
@@ -7,6 +6,10 @@ class Square(Figure):
 
     def __init__(self, side):
         self.side = side
+
+    @property
+    def figure_params(self):
+        return f"сторона = {self.side}"
 
     @property
     def perimetr(self):
@@ -27,6 +30,6 @@ class Square(Figure):
 
 if __name__ == "__main__":
     square = Square(10)
-    print("Имя фигуры = {}".format(square.get_name()))
+    print("Имя фигуры = {}, {}".format(square.get_name(), square.figure_params))
     print("Периметр {}а = {}".format(square.get_name(), square.perimetr))
     print("Площадь {}а = {}".format(square.get_name(), square.area))
