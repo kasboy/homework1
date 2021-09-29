@@ -2,19 +2,30 @@ from figure import Figure
 
 
 class Square(Figure):
+    """
+    Класс Квадрат. Конструктор принимает длину стороны квадрата.
+    """
     _name = 'Квадрат'
 
     def __init__(self, side):
-        self.side = side
+        try:  # Проверяем, задана ли сторона квадрата как число
+            self.side = float(side)
+        except Exception as e:
+            print("Длиной стороны квадрата может быть только положительное число!!!")
+            raise e
 
     @property
     def figure_params(self):
+        """
+        Метод возвращает значение длины стороны квадрата.
+        return:
+        """
         return f"сторона = {self.side}"
 
     @property
     def perimetr(self):
         """
-        Функция вычисляет периметр квадрата
+        Метод вычисляет периметр квадрата
         :return:
         """
         return self.side * 4
@@ -22,8 +33,8 @@ class Square(Figure):
     @property
     def area(self):
         """
-        Функция вычисляет площадь квадрата по формуле S = a * b.
-        :return: Площадь треугольника (float)
+        Метод вычисляет площадь квадрата по формуле S = a * a.
+        :return: Площадь квадрата (float)
         """
         return self.side ** 2
 

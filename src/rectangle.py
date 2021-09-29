@@ -2,20 +2,31 @@ from figure import Figure
 
 
 class Rectangle(Figure):
+    """
+    Класс Прямоугольник. Конструктор принимает длину и ширину прямоугольника.
+    """
     _name = 'Прямоугольник'
 
     def __init__(self, side1, side2):
-        self.side1 = side1
-        self.side2 = side2
+        try:  # Проверяем, задана ли сторона квадрата как число
+            self.side1 = float(side1)
+            self.side2 = float(side2)
+        except Exception as e:
+            print("Длинами сторон прямоугольника могут быть только положительные числа!!!")
+            raise e
 
     @property
     def figure_params(self):
+        """
+        Метод возвращает значение длин сторон прямоугольника.
+        return:
+        """
         return f"сторона_1 = {self.side1}, сторона_2 = {self.side2}"
 
     @property
     def perimetr(self):
         """
-        Функция вычисляет периметр прямоугольника
+        Метод вычисляет периметр прямоугольника
         :return:
         """
         return 2 * (self.side1 + self.side2)
@@ -23,7 +34,7 @@ class Rectangle(Figure):
     @property
     def area(self):
         """
-        Функция считает площадь прямоугольника по формуле S = a * b.
+        Метод вычисляет площадь прямоугольника по формуле S = a * b.
         :return: Площадь прямоугольника (float)
         """
         return self.side1 * self.side2

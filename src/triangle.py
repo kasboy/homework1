@@ -3,38 +3,38 @@ from figure import Figure
 
 
 class Triangle(Figure):
+    """
+    Класс Треугольник. Конструктор принимает длины 3х сторон треугольника. Если треугольк создать
+    нельзя, возвращаетя 'None'.
+    """
     _name = 'Треугольник'
 
     def __init__(self, side1, side2, side3):
-        try:
+        try:  # Проверяем, все ли стороны треугольника заданы как числа
             self.side1 = float(side1)
             self.side2 = float(side2)
             self.side3 = float(side3)
         except Exception as e:
             print("Длинами сторон треугольника могут быть только положительные числа!!!")
             raise e
-        # if self.is_triangle() != "Yes":
-        #     return None  # Таким образом вернуть None не получается, нужен другой способ
 
     @staticmethod
     def __new__(cls, *args):
-        # Проверяем является ли фигура треугольником по формуле: сумма длин 2х строн должна быть
-        # больше третьей. Если условие не выполняется, не содаем объект, возвращаем 'None'
+        """
+        Метод проверяет является ли фигура треугольником по формуле: сумма длин 2х строн должна быть
+        больше третьей. Если условие не выполняется, объект не создается, возвращается 'None'.
+        """
         if not ((args[0] + args[1] > args[2]) and (args[0] + args[2] > args[1])
                 and (args[1] + args[2] > args[0])):
-            # print(f"args[0] = {args[0]}")
-            # print(f"args[1] = {args[1]}")
-            # print(f"args[2] = {args[2]}")
-            # print("Fail, stopped!!!")
             return None
         else:
-            # print("OK, go further")
+            # Возврящаем объект
             return super(Triangle, cls).__new__(cls)
 
     @property
     def figure_params(self):
         """
-        Функция возвращает значение сторон треугольника
+        Метод возвращает значение сторон треугольника.
         return:
         """
         return f"сторона_1 = {self.side1}, сторона_2 = {self.side2}, сторона_3 = {self.side3}"
@@ -42,7 +42,7 @@ class Triangle(Figure):
     @property
     def area(self):
         """
-        Функция вычисляет площадь треугольника по формуле Герона.
+        Метод вычисляет площадь треугольника по формуле Герона.
         Сначала необходимо подсчитать разность полупериметра и каждой его стороны. Потом найти
         произведение полученных чисел, умножить результат на полупериметр и найти корень из
         полученного числа.
@@ -64,7 +64,7 @@ class Triangle(Figure):
     @property
     def perimetr(self):
         """
-        Функция вычисляет периметр треугольника по формуле S = a + b + c
+        Метод вычисляет периметр треугольника по формуле S = a + b + c
         :return:
         """
         if self.is_triangle() == "Yes":
@@ -74,36 +74,12 @@ class Triangle(Figure):
         else:
             raise Exception
 
-    # Данная функция сейчас никак не используется
-    def is_triangle_sides_available(self):
-        """
-        Функция проверяет все ли стороны треугольника заданы
-        :return:
-        """
-        flag = 0
-        if not self.side1:
-            print("У треугольника не задана сторона 1")
-            flag += 1
-        if not self.side2:
-            print("У треугольника не задана сторона 2")
-            flag += 1
-        if not self.side3:
-            print("У треугольника не задана сторона 3")
-            flag += 1
-        if flag != 0:
-            print("Треугольник создать нельзя так как не задано {flag} стороны")
-            return None
-        else:
-            return self.figure_params
-
     def is_triangle(self):
         """
-        Функция проверяет является ли фигура треугольником по формуле: сумма длин 2х строн должна
+        Метод проверяет является ли фигура треугольником по формуле: сумма длин 2х строн должна
         быть больше третьей.
-
-        :return: Yes, No (str)
+        :return: Yes (str), No (str)
         """
-        # Убрать проверку 'if self.is_triangle_sides_available() != None'
         if (self.side1 + self.side2 > self.side3) and (
                 self.side1 + self.side3 > self.side2) and (
                 self.side2 + self.side3 > self.side1):
