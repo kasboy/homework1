@@ -58,11 +58,11 @@ triangle.add_area(square)
 Никаих print'ов, закомментированного кода и лишних файлов быть не должно.
 """
 
-from figure import Figure
-from circle import Circle
-from rectangle import Rectangle
-from square import Square
-from triangle import Triangle
+from src.figure import Figure
+from src.circle import Circle
+from src.rectangle import Rectangle
+from src.square import Square
+from src.triangle import Triangle
 
 if __name__ == "__main__":
     triangle = Triangle(13, 14, 15)  # Создаем треугольник
