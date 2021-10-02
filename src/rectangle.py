@@ -8,12 +8,13 @@ class Rectangle(Figure):
     _name = 'Прямоугольник'
 
     def __init__(self, side1, side2):
-        try:  # Проверяем, задана ли сторона квадрата как число
-            self.side1 = float(side1)
-            self.side2 = float(side2)
-        except Exception as e:
-            print("Длинами сторон прямоугольника могут быть только положительные числа!!!")
-            raise e
+        if not isinstance(side1, int) and not isinstance(side1, float) or side1 < 0:
+            raise ValueError("Длинами сторон прямоугольника могут быть только положительные числа!")
+        elif not isinstance(side2, int) and not isinstance(side2, float) or side2 < 0:
+            raise ValueError("Длинами сторон прямоугольника могут быть только положительные числа!")
+        self.side1 = side1
+        self.side2 = side2
+        print(f"'Rectangle' object with id = {id(self)} was created successfully")
 
     @property
     def figure_params(self):
@@ -24,7 +25,7 @@ class Rectangle(Figure):
         return f"сторона_1 = {self.side1}, сторона_2 = {self.side2}"
 
     @property
-    def perimetr(self):
+    def perimeter(self):
         """
         Метод вычисляет периметр прямоугольника
         :return:
@@ -41,7 +42,7 @@ class Rectangle(Figure):
 
 
 if __name__ == "__main__":
-    rectangle = Rectangle(4, 5)
+    rectangle = Rectangle(1, 5)
     print("Имя фигуры = {}, {}".format(rectangle.get_name(), rectangle.figure_params))
-    print("Периметр {}а = {}".format(rectangle.get_name(), rectangle.perimetr))
+    print("Периметр {}а = {}".format(rectangle.get_name(), rectangle.perimeter))
     print("Площадь {}а = {}".format(rectangle.get_name(), rectangle.area))

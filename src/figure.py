@@ -35,7 +35,7 @@ class Figure:
         pass
 
     @property
-    def perimetr(self):
+    def perimeter(self):
         """
         Метод вычисляет периметр фигуры (сумму длин сторон или длину окружности)
         :return:
@@ -49,10 +49,9 @@ class Figure:
         сообщается, что передан неправильный класс.
         :return:
         """
-        if not isinstance(other, Figure):  # Проверяю, является ли объект экземпляром класса Figure
-            # raise ValueError("Передан неправильный класс. Можно складывать площади только объектов класса"
-            #                  " Figure и призводных от него")
+        if not isinstance(other, Figure):
+            # Проверяем, является ли объект экземпляром класса Figure
             raise ValueError(
-                f"Передан неправильный класс {type(other)}. Можно складывать площади только объектов класса"
-                " Figure и призводных от него")
+                f"Передан неправильный класс {type(other)}. Можно складывать площади только "
+                f"объектов класса Figure и призводных от него")
         return self.area + other.area
