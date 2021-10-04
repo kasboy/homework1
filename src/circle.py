@@ -10,24 +10,17 @@ class Circle(Figure):
 
     def __init__(self, radius):
         # Проверяем, задан ли радиус окружности как положительное число
-        if not isinstance(radius, int) and not isinstance(radius, float) or radius < 0:
-            raise ValueError("Радиусом круга может быть только положительное число!!!")
-        self.radius = radius
-        print(f"'Circle' object with id = {id(self)} was created successfully")
-
-        # try:  # Проверяем, задан ли радиус окружности как число
-        #     self.radius = float(radius)
-        # except Exception as e:
-        #     print("Радиусом круга может быть только положительное число!!!")
-        #     raise e
+        assert isinstance(radius, int) or isinstance(radius, float), "Радиус должен быть числом!"
+        assert radius > 0, "Радиус должен быть больше нуля!"
+        self.__radius = radius
 
     @property
-    def figure_params(self):
+    def radius(self):
         """
         Метод возвращает значение радиуса круга.
         return:
         """
-        return f"Радиус = {self.radius}"
+        return self.__radius
 
     @property
     def perimeter(self):
@@ -47,7 +40,7 @@ class Circle(Figure):
 
 
 if __name__ == "__main__":
-    circle = Circle(10)
-    print("Имя фигуры = {}, {}".format(circle.get_name(), circle.figure_params))
+    circle = Circle(1)
+    print("Имя фигуры = {}, Радиус = {}".format(circle.get_name(), circle.radius))
     print("Периметр {}а = {}".format(circle.get_name(), circle.perimeter))
     print("Площадь {}а = {}".format(circle.get_name(), circle.area))
