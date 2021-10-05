@@ -8,9 +8,9 @@ class Square(Figure):
     _name = 'Квадрат'
 
     def __init__(self, side):
-        if not isinstance(side, int) and not isinstance(side, float) or side < 0:
-            raise ValueError("Длиной стороны квадрата может быть только положительное число!!!")
-        self.side = side
+        assert isinstance(side, (float, int)), "Длина стороны квадрата должна быть числом!"
+        assert side > 0, "Длина стороны должна быть больше нуля!"
+        self.__side = side
         print(f"'Square' object with id = {id(self)} was created successfully")
 
         # try:  # Проверяем, задана ли сторона квадрата как число
@@ -25,7 +25,7 @@ class Square(Figure):
         Метод возвращает значение длины стороны квадрата.
         return:
         """
-        return f"сторона = {self.side}"
+        return f"сторона = {self.__side}"
 
     @property
     def perimeter(self):
@@ -33,7 +33,7 @@ class Square(Figure):
         Метод вычисляет периметр квадрата
         :return:
         """
-        return self.side * 4
+        return self.__side * 4
 
     @property
     def area(self):
@@ -41,7 +41,7 @@ class Square(Figure):
         Метод вычисляет площадь квадрата по формуле S = a * a.
         :return: Площадь квадрата (float)
         """
-        return self.side ** 2
+        return self.__side ** 2
 
 
 if __name__ == "__main__":

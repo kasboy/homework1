@@ -9,8 +9,7 @@ from src.triangle import Triangle
 
 # Тесты на класс Circle
 def test_circle_create_instance(create_circle):
-    assert isinstance(create_circle, Circle)
-    assert isinstance(create_circle, Figure)
+    assert isinstance(create_circle, (Circle, Figure))
 
 def test_circle_has_attr_radius1(create_circle):
     assert create_circle.radius == 5

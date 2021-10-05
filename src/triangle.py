@@ -10,9 +10,9 @@ class Triangle(Figure):
     _name = 'Треугольник'
 
     def __init__(self, side1, side2, side3):
-        self.side1 = side1
-        self.side2 = side2
-        self.side3 = side3
+        self.__side1 = side1
+        self.__side2 = side2
+        self.__side3 = side3
         print(f"'Triangle' object with id = {id(self)} was created successfully")
 
     @staticmethod
@@ -24,10 +24,9 @@ class Triangle(Figure):
         """
         # Проверяем, заданы ли стороны треугольника как положительные числа
         for i, arg in enumerate(args):
-            print(f"arg[{i + 1}] = {arg}")
-            if not isinstance(arg, int) and not isinstance(arg, float) or arg < 0:
-                raise ValueError("Длинами сторон треугольника могут быть только положительные"
-                                 " числа!")
+            # print(f"arg[{i + 1}] = {arg}")
+            assert isinstance(arg, (float, int)), "Длина стороны треугольника должна быть числом!"
+            assert arg > 0, "Длина стороны должна быть больше нуля!"
 
         # Проверяем условие существования тругольника
         if not ((args[0] + args[1] > args[2]) and (args[0] + args[2] > args[1])
@@ -43,7 +42,7 @@ class Triangle(Figure):
         Метод возвращает значение сторон треугольника.
         return:
         """
-        return f"сторона_1 = {self.side1}, сторона_2 = {self.side2}, сторона_3 = {self.side3}"
+        return f"сторона_1 = {self.__side1}, сторона_2 = {self.__side2}, сторона_3 = {self.__side3}"
 
     @property
     def area(self):
@@ -59,8 +58,8 @@ class Triangle(Figure):
         """
         halfperimeter = self.perimeter / 2
         return math.sqrt(
-            halfperimeter * (halfperimeter - self.side1) * (halfperimeter - self.side2) *
-            (halfperimeter - self.side3))
+            halfperimeter * (halfperimeter - self.__side1) * (halfperimeter - self.__side2) *
+            (halfperimeter - self.__side3))
 
     @property
     def perimeter(self):
@@ -68,7 +67,7 @@ class Triangle(Figure):
         Метод вычисляет периметр треугольника по формуле S = a + b + c
         :return:
         """
-        return self.side1 + self.side2 + self.side3
+        return self.__side1 + self.__side2 + self.__side3
 
 
 if __name__ == "__main__":

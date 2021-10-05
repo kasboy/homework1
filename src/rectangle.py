@@ -8,13 +8,11 @@ class Rectangle(Figure):
     _name = 'Прямоугольник'
 
     def __init__(self, side1, side2):
-        if not isinstance(side1, int) and not isinstance(side1, float) or side1 < 0:
-            raise ValueError("Длинами сторон прямоугольника могут быть только положительные числа!")
-        elif not isinstance(side2, int) and not isinstance(side2, float) or side2 < 0:
-            raise ValueError("Длинами сторон прямоугольника могут быть только положительные числа!")
-        self.side1 = side1
-        self.side2 = side2
-        print(f"'Rectangle' object with id = {id(self)} was created successfully")
+        assert isinstance(side1, (float, int)) and isinstance(side2, (float, int)), \
+            "Длина стороны прямоугольника должна быть числом!"
+        assert side1 > 0 and side2 > 0, "Длина стороны должна быть больше нуля!"
+        self.__side1 = side1
+        self.__side2 = side2
 
     @property
     def figure_params(self):
@@ -22,7 +20,7 @@ class Rectangle(Figure):
         Метод возвращает значение длин сторон прямоугольника.
         return:
         """
-        return f"сторона_1 = {self.side1}, сторона_2 = {self.side2}"
+        return f"сторона_1 = {self.__side1}, сторона_2 = {self.__side2}"
 
     @property
     def perimeter(self):
@@ -30,7 +28,7 @@ class Rectangle(Figure):
         Метод вычисляет периметр прямоугольника
         :return:
         """
-        return 2 * (self.side1 + self.side2)
+        return 2 * (self.__side1 + self.__side2)
 
     @property
     def area(self):
@@ -38,11 +36,11 @@ class Rectangle(Figure):
         Метод вычисляет площадь прямоугольника по формуле S = a * b.
         :return: Площадь прямоугольника (float)
         """
-        return self.side1 * self.side2
+        return self.__side1 * self.__side2
 
 
 if __name__ == "__main__":
-    rectangle = Rectangle(1, 5)
+    rectangle = Rectangle(4, 5)
     print("Имя фигуры = {}, {}".format(rectangle.get_name(), rectangle.figure_params))
     print("Периметр {}а = {}".format(rectangle.get_name(), rectangle.perimeter))
     print("Площадь {}а = {}".format(rectangle.get_name(), rectangle.area))

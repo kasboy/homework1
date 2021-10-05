@@ -10,7 +10,7 @@ class Circle(Figure):
 
     def __init__(self, radius):
         # Проверяем, задан ли радиус окружности как положительное число
-        assert isinstance(radius, int) or isinstance(radius, float), "Радиус должен быть числом!"
+        assert isinstance(radius, (float, int)), "Радиус должен быть числом!"
         assert radius > 0, "Радиус должен быть больше нуля!"
         self.__radius = radius
 
@@ -40,7 +40,7 @@ class Circle(Figure):
 
 
 if __name__ == "__main__":
-    circle = Circle(1)
+    circle = Circle(5)
     print("Имя фигуры = {}, Радиус = {}".format(circle.get_name(), circle.radius))
     print("Периметр {}а = {}".format(circle.get_name(), circle.perimeter))
     print("Площадь {}а = {}".format(circle.get_name(), circle.area))
