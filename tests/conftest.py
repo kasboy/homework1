@@ -1,4 +1,5 @@
 import pytest
+
 from src.figure import Figure
 from src.circle import Circle
 from src.rectangle import Rectangle
@@ -26,7 +27,7 @@ def create_rectangle():
 
 
 @pytest.fixture
-def create_square(request):
+def create_square():
     square = Square(4)
     yield square
     del square
@@ -37,6 +38,7 @@ def create_triangle():
     triangle = Triangle(13, 14, 15)
     yield triangle
     del triangle
+
 
 @pytest.fixture
 def create_incorrect_triangle():

@@ -1,5 +1,6 @@
 """Тесты на класс Triangle."""
 import pytest
+
 from src.triangle import Triangle
 from src.figure import Figure
 
@@ -42,7 +43,8 @@ def test_triangle_has_sides(create_triangle):
     assert create_triangle.sides == (13, 14, 15)
 
 
-@pytest.mark.parametrize("side,expected_area", [((13, 14, 15), 84), ((2.1, 3.1, 4.1), 3.179389681998735),
+@pytest.mark.parametrize("side,expected_area", [((13, 14, 15), 84),
+                                                ((2.1, 3.1, 4.1), 3.179389681998735),
                                                 ((10.1, 12, 20.588), 41.17424432078754)])
 def test_triangle_check_area_calculating(side, expected_area):
     """Проверяем, что площадь треугольника считается корректно."""
@@ -70,7 +72,8 @@ def test_triangle_add_area_square(create_triangle, create_square, create_circle,
     assert create_triangle.add_area(triangle2) == create_triangle.area + triangle2.area
     assert create_triangle.add_area(create_square) == create_triangle.area + create_square.area
     assert create_triangle.add_area(create_circle) == create_triangle.area + create_circle.area
-    assert create_triangle.add_area(create_rectangle) == create_triangle.area + create_rectangle.area
+    assert create_triangle.add_area(create_rectangle) == create_triangle.area + \
+           create_rectangle.area
 
 
 def test_triangle_add_area_negative(create_triangle):

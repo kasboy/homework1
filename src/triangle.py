@@ -1,4 +1,5 @@
 import math
+
 from src.figure import Figure
 
 
@@ -42,7 +43,7 @@ class Triangle(Figure):
         Метод возвращает значение сторон треугольника.
         return:
         """
-        return (self.__side1, self.__side2, self.__side3)
+        return self.__side1, self.__side2, self.__side3
 
     @property
     def area(self):
@@ -77,6 +78,6 @@ if __name__ == "__main__":
     # triangle = Triangle(side1, side2, side3)
 
     triangle = Triangle(13, 14, 15)
-    print("Имя фигуры = {}, стороны: {}".format(triangle.get_name(), triangle.sides))
+    print("Имя фигуры: {}, стороны: {}".format(triangle.get_name(), triangle.sides))
     print("Периметр {}а = {}".format(triangle.get_name(), triangle.perimeter))
     print("Площадь {}а = {}".format(triangle.get_name(), triangle.area))

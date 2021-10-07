@@ -15,12 +15,12 @@ class Rectangle(Figure):
         self.__side2 = side2
 
     @property
-    def figure_params(self):
+    def sides(self):
         """
         Метод возвращает значение длин сторон прямоугольника.
         return:
         """
-        return f"сторона_1 = {self.__side1}, сторона_2 = {self.__side2}"
+        return self.__side1, self.__side2
 
     @property
     def perimeter(self):
@@ -41,6 +41,6 @@ class Rectangle(Figure):
 
 if __name__ == "__main__":
     rectangle = Rectangle(4, 5)
-    print("Имя фигуры = {}, {}".format(rectangle.get_name(), rectangle.figure_params))
+    print("Имя фигуры = {}, стороны: {}".format(rectangle.get_name(), rectangle.sides))
     print("Периметр {}а = {}".format(rectangle.get_name(), rectangle.perimeter))
     print("Площадь {}а = {}".format(rectangle.get_name(), rectangle.area))

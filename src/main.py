@@ -74,22 +74,22 @@ if __name__ == "__main__":
     else:
         print(f"Not None, type = {type(triangle)}")
 
-    print("Имя фигуры = {}, {}".format(triangle.get_name(), triangle.figure_params))
+    print("Имя фигуры = {}, стороны: {}".format(triangle.get_name(), triangle.sides))
     print("Периметр {}а = {}".format(triangle.get_name(), triangle.perimeter))
     print("Площадь {}а = {}\n".format(triangle.get_name(), triangle.area))
 
     square = Square(10)  # Создаем квадрат
-    print("Имя фигуры = {}, {}".format(square.get_name(), square.figure_params))
+    print("Имя фигуры = {}, сторона: {}".format(square.get_name(), square.sides))
     print("Периметр {}а = {}".format(square.get_name(), square.perimeter))
     print("Площадь {}а = {}\n".format(square.get_name(), square.area))
 
     circle = Circle(10)  # Создаем круг
-    print("Имя фигуры = {}, {}".format(circle.get_name(), circle.figure_params))
+    print("Имя фигуры = {}, радиус: {}".format(circle.get_name(), circle.radius))
     print("Периметр {}а = {}".format(circle.get_name(), circle.perimeter))
     print("Площадь {}а = {}\n".format(circle.get_name(), circle.area))
 
     rectangle = Rectangle(4, 5)  # Создаем прямоугольник
-    print("Имя фигуры = {}, {}".format(rectangle.get_name(), rectangle.figure_params))
+    print("Имя фигуры = {}, {}".format(rectangle.get_name(), rectangle.sides))
     print("Периметр {}а = {}".format(rectangle.get_name(), rectangle.perimeter))
     print("Площадь {}а = {}\n".format(rectangle.get_name(), rectangle.area))
 

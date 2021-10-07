@@ -2,7 +2,7 @@ class Figure:
     """
     Базовый класс геометрической фигуры (Figure)
     """
-    _name = "Figure"
+    _name = "Фигура"
     __counter = 0
 
     def __init__(self):

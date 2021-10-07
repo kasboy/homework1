@@ -11,21 +11,14 @@ class Square(Figure):
         assert isinstance(side, (float, int)), "Длина стороны квадрата должна быть числом!"
         assert side > 0, "Длина стороны должна быть больше нуля!"
         self.__side = side
-        print(f"'Square' object with id = {id(self)} was created successfully")
-
-        # try:  # Проверяем, задана ли сторона квадрата как число
-        #     self.side = float(side)
-        # except Exception as e:
-        #     print("Длиной стороны квадрата может быть только положительное число!!!")
-        #     raise e
 
     @property
-    def figure_params(self):
+    def sides(self):
         """
         Метод возвращает значение длины стороны квадрата.
         return:
         """
-        return f"сторона = {self.__side}"
+        return self.__side
 
     @property
     def perimeter(self):
@@ -46,6 +39,6 @@ class Square(Figure):
 
 if __name__ == "__main__":
     square = Square(10)
-    print("Имя фигуры = {}, {}".format(square.get_name(), square.figure_params))
+    print("Имя фигуры: {}, сторона: {}".format(square.get_name(), square.sides))
     print("Периметр {}а = {}".format(square.get_name(), square.perimeter))
     print("Площадь {}а = {}".format(square.get_name(), square.area))
