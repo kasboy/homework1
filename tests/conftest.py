@@ -12,9 +12,11 @@ def create_circle():
     yield circle
     del circle
 
+
 @pytest.fixture
 def create_figure():
     return Figure()
+
 
 @pytest.fixture
 def create_rectangle():
@@ -22,22 +24,22 @@ def create_rectangle():
     yield rectangle
     del rectangle
 
-# @pytest.fixture(params=[4, 100, 0])
-# def create_square(request):
-#     square = Square(request)
-#     request.addfinalizer(fin)
-#     def fin():
-#         del square
-#     return square
 
 @pytest.fixture
-def create_square():
+def create_square(request):
     square = Square(4)
     yield square
     del square
+
 
 @pytest.fixture
 def create_triangle():
     triangle = Triangle(13, 14, 15)
     yield triangle
     del triangle
+
+@pytest.fixture
+def create_incorrect_triangle():
+    incorrect_triangle = Triangle(1, 2, 3)
+    yield incorrect_triangle
+    del incorrect_triangle

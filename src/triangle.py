@@ -37,12 +37,12 @@ class Triangle(Figure):
         return super(Triangle, cls).__new__(cls)
 
     @property
-    def figure_params(self):
+    def sides(self):
         """
         Метод возвращает значение сторон треугольника.
         return:
         """
-        return f"сторона_1 = {self.__side1}, сторона_2 = {self.__side2}, сторона_3 = {self.__side3}"
+        return (self.__side1, self.__side2, self.__side3)
 
     @property
     def area(self):
@@ -77,6 +77,6 @@ if __name__ == "__main__":
     # triangle = Triangle(side1, side2, side3)
 
     triangle = Triangle(13, 14, 15)
-    print("Имя фигуры = {}, {}".format(triangle.get_name(), triangle.figure_params))
+    print("Имя фигуры = {}, стороны: {}".format(triangle.get_name(), triangle.sides))
     print("Периметр {}а = {}".format(triangle.get_name(), triangle.perimeter))
     print("Площадь {}а = {}".format(triangle.get_name(), triangle.area))

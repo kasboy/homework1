@@ -1,35 +1,42 @@
 import pytest
+
 from math import pi
 from src.figure import Figure
 from src.circle import Circle
 from src.rectangle import Rectangle
 from src.square import Square
-from src.triangle import Triangle
 
 
 # Тесты на класс Circle
 def test_circle_create_instance(create_circle):
     assert isinstance(create_circle, (Circle, Figure))
 
-def test_circle_has_attr_radius1(create_circle):
+
+def test_circle_has_attr_radius(create_circle):
     assert create_circle.radius == 5
+
 
 @pytest.mark.parametrize("amount", [0, 10, 9999.21, 0.01])
 def test_circle_has_attr_radius(amount):
     circle = Circle(amount)
     assert circle.radius == amount
 
+
 def test_circle_has_attr_area(create_circle):
     assert create_circle.area == pi * 5 ** 3
+
 
 def test_circle_has_attr_name(create_circle):
     assert create_circle.get_name() == 'Круг'
 
-def test_circle_has_attr_perimetr(create_circle):
+
+def test_circle_has_attr_perimeter(create_circle):
     assert create_circle.perimeter == 2 * pi * 5
+
 
 def test_circle_add_area_square(create_circle, create_square):
     assert create_circle.add_area(create_square) == create_circle.area + create_square.area
+
 
 def test_circle_add_area_negative(create_circle):
     """Can't sum other classes"""
@@ -47,16 +54,18 @@ def test_figure_create_instance():
     with pytest.raises(Exception):
         figure = Figure()
 
+
 # Тесты на класс Square
 def test_square_create_instance(create_square):
-    assert isinstance(create_square, Square)
-    assert isinstance(create_square, Figure)
+    assert isinstance(create_square, (Figure, Square))
+
 
 def test_square_has_attr(create_square):
     assert create_square.side == 4
     assert create_square.area == 4 ** 2
     assert create_square.get_name() == 'Квадрат'
     assert create_square.perimeter == 4 * 4
+
 
 def test_circle_add_area_square(create_circle, create_square):
     assert create_circle.add_area(create_square) == create_circle.area + create_square.area
