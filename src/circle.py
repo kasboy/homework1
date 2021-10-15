@@ -3,9 +3,8 @@ from src.figure import Figure
 
 
 class Circle(Figure):
-    """
-    Класс Круг. Конструктор принимает радиус окружности.
-    """
+    """ Класс Круг. Конструктор принимает радиус окружности. """
+
     _name = 'Круг'
 
     def __init__(self, radius):
@@ -16,26 +15,20 @@ class Circle(Figure):
 
     @property
     def radius(self):
-        """
-        Метод возвращает значение радиуса круга.
-        return:
-        """
+        """ Метод возвращает значение радиуса круга. """
+
         return self.__radius
 
     @property
     def perimeter(self):
-        """
-        Метод вычисляет длину окружности по формуле S = 2 * π * r
-        :return:
-        """
+        """ Метод вычисляет длину окружности по формуле S = 2 * π * r. """
+
         return 2 * pi * self.radius
 
     @property
     def area(self):
-        """
-        Метод вычисляет площадь окружности по формуле S = π * r * r
-        :return: Площадь окружности (float)
-        """
+        """ Метод вычисляет площадь окружности по формуле S = π * r * r. """
+
         return pi * self.radius ** 2
 
 
